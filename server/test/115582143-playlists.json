@@ -219,20 +219,128 @@
                 }
             ] 
         },
-        {
-            "name": "Don't be Rude",
+        { 
+            "name": "Interesting Songs",
             "songs": [
                 {
-                    "title": "A Message to You Rudy",
-                    "artist": "The Specials",
-                    "year": 1979,
-                    "youTubeId": "cntvEDbagAw"
+                    "title": "Miss Summer",
+                    "artist": "ODIE",
+                    "year": 2020,
+                    "youTubeId": "zkpGqtAbhoo"
                 },
                 {
-                    "title": "Rudie Can't Fail",
-                    "artist": "The Clash",
-                    "year": 1979,
-                    "youTubeId": "uEK9oK02D1M"
+                    "title": "Shut Up My Mom's Calling",
+                    "artist": "Hotel Ugly",
+                    "year": 2021,
+                    "youTubeId": "HVmpI3d11oM"
+                },
+                {
+                    "title": "ARE WE STILL FRIENDS?",
+                    "artist": "Tyler, The Creator",
+                    "year": 2019,
+                    "youTubeId": "Gb76TgCUqAY"
+                },
+                {
+                    "title": "2516",
+                    "artist": "Luna Li",
+                    "year": 2021,
+                    "youTubeId": "l2iNWCSO1d8"
+                },
+                {
+                    "title": "Binibini",
+                    "artist": "Zack Tabudlo",
+                    "year": 2021,
+                    "youTubeId": "DhzDmhytrTI"
+                },
+                {
+                    "title": "Killswitch Lullaby",
+                    "artist": "Flawed Mangoes",
+                    "year": 2023,
+                    "youTubeId": "Hn4YTL_OlUA"
+                },
+                {
+                    "title": "4:44",
+                    "artist": "JAY-Z",
+                    "year": 2017,
+                    "youTubeId": "UMqr0NjQprE"
+                },
+                {
+                    "title": "Stan",
+                    "artist": "Eminem ft. Dido",
+                    "year": 2000,
+                    "youTubeId": "gOMhN-hfMtY"
+                },
+                {
+                    "title": "Snow on tha Bluff",
+                    "artist": "J. Cole",
+                    "year": 2020,
+                    "youTubeId": "QwM7z5V4a6I"
+                },
+                {
+                    "title": "Denver",
+                    "artist": "Jack Harlow",
+                    "year": 2022,
+                    "youTubeId": "0pQjFhXjVh8"
+                },
+                {
+                    "title": "From Time",
+                    "artist": "Drake ft. Jhené Aiko",
+                    "year": 2013,
+                    "youTubeId": "7m7j2k2hX2Y"
+                },
+                {
+                    "title": "100 Degrees",
+                    "artist": "Rich Brian",
+                    "year": 2022,
+                    "youTubeId": "3j6z6e2yZ2Q"
+                },
+                {
+                    "title": "I Hope It's Cold in New York",
+                    "artist": "The Chainsmokers",
+                    "year": 2016,
+                    "youTubeId": "F8v7hJ4y3uY"
+                },
+                {
+                    "title": "When Will I See You Again",
+                    "artist": "Shakka ft. Wretch 32 & Jacob Banks",
+                    "year": 2015,
+                    "youTubeId": "6j7z6e2yZ2Q"
+                },
+                {
+                    "title": "I Really Want to Stay at Your House",
+                    "artist": "ROSALÍA",
+                    "year": 2020,
+                    "youTubeId": "B6g8z6e2yZ2Q"
+                },
+                {
+                    "title": "Leray",
+                    "artist": "Trippie Redd",
+                    "year": 2021,
+                    "youTubeId": "C8h8z6e2yZ2Q"
+                },
+                {
+                    "title": "I",
+                    "artist": "Jaden Smith",
+                    "year": 2014,
+                    "youTubeId": "D8h8z6e2yZ2Q"
+                },
+                {
+                    "title": "44 More",
+                    "artist": "Logic",
+                    "year": 2018,
+                    "youTubeId": "D8h8z6e2yZ2Q"
+                },
+                {
+                    "title": "Lemonade",
+                    "artist": "Jeremy Passion",
+                    "year": 2011,
+                    "youTubeId": "D8h8z6e2yZ2Q"
+                },
+                {
+                    "title": "Sagittarius",
+                    "artist": "88rising ft. Joji & Higher Brothers",
+                    "year": 2018,
+                    "youTubeId": "D8h8z6e2yZ2Q"
                 }
             ]
         }
