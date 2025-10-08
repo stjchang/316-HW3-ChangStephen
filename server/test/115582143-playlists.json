@@ -1,0 +1,239 @@
+[
+    {
+            "name": "Oldies",
+            "songs": [
+                {
+                    "title": "American Pie",
+                    "artist": "Don McLean",
+                    "year": 1971,
+                    "youTubeId": "iX_TFkut1PM"
+                },
+                {
+                    "title": "Closing Time",
+                    "artist": "Semisonic",
+                        "year": 1998,
+                    "youTubeId": "MZM3sj8H8Ig"
+                },
+                {
+                    "title": "Nightswimming",
+                    "artist": "R.E.M.",
+                    "year": 1992,
+                    "youTubeId": "c8vJpGpVhzM"
+                },
+                {
+                    "title": "Stacy’s Mom",
+                    "artist": "Fountains of Wayne",
+                    "year": 2003,
+                    "youTubeId": "H2di83WAOhU"
+                },
+                {
+                    "title": "It’s the End of the World as We Know It (And I Feel Fine)",
+                    "artist": "R.E.M.",
+                    "year": 1987,
+                    "youTubeId": "Y4-yX1bF6sQ"
+                },
+                {
+                    "title": "Come On Eileen",
+                    "artist": "Dexys Midnight Runners",
+                    "year": 1982,
+                    "youTubeId": "DE4CT0Q0R8I"
+                },
+                {
+                    "title": "Iris",
+                    "artist": "Goo Goo Dolls",
+                    "year": 1998,
+                    "youTubeId": "NdYWuo9OFAw"
+                },
+                {
+                    "title": "Anna Sun",
+                    "artist": "Walk the Moon",
+                    "year": 2012,
+                    "youTubeId": "qDVW81bXo0s"
+                },
+                {
+                    "title": "Mr. Brightside",
+                    "artist": "The Killers",
+                    "year": 2003,
+                    "youTubeId": "gGdGFtwCNBE"
+                },
+                {
+                    "title": "Forever Young",
+                    "artist": "Alphaville",
+                    "year": 1984,
+                    "youTubeId": "WjW3YXQKbIQ"
+                },
+                {
+                    "title": "Stairway to Heaven",
+                    "artist": "Led Zeppelin",
+                    "year": 1971,
+                    "youTubeId": "QkF3oxziUI4"
+                },
+                {
+                    "title": "In Your Eyes",
+                    "artist": "Peter Gabriel",
+                    "year": 1986,
+                    "youTubeId": "MyL5vRqZg5g"
+                },
+                {
+                    "title": "Don’t Stop Believin’",
+                    "artist": "Journey",
+                    "year": 1981,
+                    "youTubeId": "1k8craCGpgs"
+                },
+                {
+                    "title": "Careless Whisper",
+                    "artist": "George Michael",
+                    "year": 1984,
+                    "youTubeId": "izGwDsrQ1eQ"
+                },
+                {
+                    "title": "Fast Car",
+                    "artist": "Tracy Chapman",
+                    "year": 1988,
+                    "youTubeId": "uTIB10eQnA0"
+                },
+                {
+                    "title": "Vincent (Starry Starry Night)",
+                    "artist": "Don McLean",
+                    "year": 1972,
+                    "youTubeId": "A3DUsxOIZi4"
+                }
+            ]
+        },
+        {
+            "name": "My Favorite Songs",
+            "songs": [
+                {
+                "title": "My Favourite Clothes",
+                "artist": "RINI",
+                "year": 2018,
+                "youTubeId": "oNIBAL8x9-4"
+                },
+                {
+                "title": "3:15",
+                "artist": "Bazzi",
+                "year": 2018,
+                "youTubeId": "xwIKpc7chs0"
+                },
+                {
+                "title": "urs",
+                "artist": "NIKI",
+                "year": 2019,
+                "youTubeId": "SDq3_D_LC78"
+                },
+                {
+                "title": "blue",
+                "artist": "keshi",
+                "year": 2020,
+                "youTubeId": "o3zVtbw0VDM"
+                },
+                {
+                "title": "Don't Wanna Fall in Love",
+                "artist": "KYLE",
+                "year": 2014,
+                "youTubeId": "yWiKGctibjk"
+                },
+                {
+                "title": "Paranoia",
+                "artist": "The Marías",
+                "year": 2023,
+                "youTubeId": "thB6wpwJYEk"
+                },
+                {
+                "title": "Forever Right Now",
+                "artist": "Conor Matthews",
+                "year": 2018,
+                "youTubeId": "BmmBOt02Zh4"
+                },
+                {
+                "title": "Beautiful Now (feat. Jon Bellion)",
+                "artist": "Zedd",
+                "year": 2015,
+                "youTubeId": "n1a7o44WxNo"
+                },
+                {
+                "title": "ANGOSTURA",
+                "artist": "keshi",
+                "year": 2022,
+                "youTubeId": "SqFJEIT35k8"
+                },
+                {
+                "title": "Every Summertime",
+                "artist": "NIKI",
+                "year": 2021,
+                "youTubeId": "a0OHkWX7B-E"
+                },
+                {
+                "title": "Paragraphs",
+                "artist": "Luke Chiang",
+                "year": 2019,
+                "youTubeId": "FPNmQmpqpI8"
+                },
+                {
+                "title": "Silver Lining",
+                "artist": "grentperez",
+                "year": 2023,
+                "youTubeId": "FlZc7oRUEk4"
+                },
+                {
+                "title": "Regent's Park",
+                "artist": "Bruno Major",
+                "year": 2020,
+                "youTubeId": "sSvAFjpLaGA"
+                },
+                {
+                "title": "love.",
+                "artist": "wave to earth",
+                "year": 2023,
+                "youTubeId": "Q49pnA4jsp8"
+                },
+                {
+                "title": "White Ferrari",
+                "artist": "Frank Ocean",
+                "year": 2016,
+                "youTubeId": "Dlz_XHeUUis"
+                },
+                {
+                "title": "DIE 4 YOU",
+                "artist": "DEAN",
+                "year": 2023,
+                "youTubeId": "SctIHP5dPyM"
+                },
+                {
+                "title": "Infrunami",
+                "artist": "Steve Lacy",
+                "year": 2020,
+                "youTubeId": "Ol0-9Ob-QNk"
+                },
+                {
+                "title": "DtMF",
+                "artist": "Bad Bunny",
+                "year": 2025,
+                "youTubeId": "Tw08lNebAjE"
+                },
+                {
+                "title": "For Tonight",
+                "artist": "GIVĒON",
+                "year": 2022,
+                "youTubeId": "JRoam571b58"
+                }
+            ] 
+        },
+        {
+            "name": "Don't be Rude",
+            "songs": [
+                {
+                    "title": "A Message to You Rudy",
+                    "artist": "The Specials",
+                    "year": 1979,
+                    "youTubeId": "cntvEDbagAw"
+                },
+                {
+                    "title": "Rudie Can't Fail",
+                    "artist": "The Clash",
+                    "year": 1979,
+                    "youTubeId": "uEK9oK02D1M"
+                }
+            ]
+        }
+    ]
