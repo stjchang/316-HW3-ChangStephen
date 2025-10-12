@@ -486,6 +486,7 @@ export const useGlobalStore = () => {
         let oldSongData = {
             title: song.title,
             artist: song.artist,
+            year: song.year,
             youTubeId: song.youTubeId
         };
         let transaction = new UpdateSong_Transaction(this, index, oldSongData, newSongData);        
