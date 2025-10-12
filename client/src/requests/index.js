@@ -26,10 +26,29 @@ export const createPlaylist = (payload) => api.post(`/playlist`, payload)
 export const readPlaylistById = (id) => api.get(`/playlist/${id}`)
 export const readPlaylistPairs = () => api.get('playlistpairs')
 
+// mine
+export const renamePlaylist = (id, newName) => api.put(`/playlist/${id}/rename`, { action: "renamePlaylist", newName: newName });
+export const addSong = (id, song) => api.put(`/playlist/${id}/addSong`, { action: "addSong", song });
+export const moveSong = (id, index, newIndex) => api.put(`/playlist/${id}/moveSong`, { action: "moveSong", index, newIndex });
+export const editSong = (id, index, song) => api.put(`/playlist/${id}/editSong`, { action: "editSong", index, song });
+export const deleteSong = (id, index) => api.put(`/playlist/${id}/deleteSong`, { action: "deleteSong", index });
+
+export const deletePlaylist = (id) => api.delete(`/playlist/delete/${id}`);
+
+export const getPlaylistsByPrefix = (prefix) => api.get(`/playlists/getPlaylistsByPrefix?prefix=${prefix}`);
+export const getUniqueSongs = () => api.get(`/playlists/getUniqueSongs`);
+
+
 const requestSender = {
     createPlaylist,
     readPlaylistById,
-    readPlaylistPairs
+    readPlaylistPairs,
+    renamePlaylist,
+    deletePlaylist,
+    addSong,
+    editSong,
+    moveSong,
+    deleteSong,
 }
 
 export default requestSender
