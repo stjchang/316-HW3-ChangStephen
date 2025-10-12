@@ -100,13 +100,15 @@ updatePlaylist = async (req, res) => {
             });
         }
 
-        if (action === 'rename') {
+        // takes newPlaylistName as req.body
+        if (action === 'renamePlaylist') {
             if (!newPlaylistName) {
                 return res.status(400).json({ success: false, message: 'need name' });
             }
             playlist.name = newPlaylistName;
         }
 
+        // takes song as req.body
         else if (action === 'addSong') {
             if (!song) {
                 return res.status(400).json({ success: false, message: 'need song data' });
@@ -114,6 +116,7 @@ updatePlaylist = async (req, res) => {
             playlist.songs.push(song);
         }
 
+        // takes index, newIndex as req.body
         else if (action === 'moveSong') {
             if (index === undefined || newIndex === undefined) {
                 return res.status(400).json({ success: false, message: 'need indicies' });
@@ -122,6 +125,7 @@ updatePlaylist = async (req, res) => {
             playlist.songs.splice(newIndex, 0, movedSong);
         }
 
+        // takes index, song as req.body
         else if (action === 'editSong') {
             if (index === undefined || song === undefined) {
                 return res.status(400).json({ success: false, message: 'need index, field, and val' });
@@ -133,6 +137,7 @@ updatePlaylist = async (req, res) => {
             }
         }
 
+        // takes index as req.body
         else if (action === 'deleteSong') {
             if (index === undefined) {
                 return res.status(400).json({ success: false, message: 'need song index' });
