@@ -204,15 +204,39 @@ getPlaylistsByPrefix = async (req, res) => {
         return res.status(200).json({ success: true, playlists });
         
     } catch (error) {
-        return res.status(500).json({ success: false, error, message: 'couldnt get playlists' });
+        return res.status(500).json({ success: false, error, message: 'couldnt get playlists by prefix' });
     }
 }
 
 getUniqueSongs= async (req, res) => {
+    try {
+        const playlists = await Playlist.find({});
+        if (!playlists.length) {
+            return res.status(200).json({ success: true, message: "no playlists found" });
+        }
 
+        let allSongs = [];
+        playlists.forEach(playlist => {
+            if (playlist.songs && Array.isArray(playlist.songs)) {
+                allSongs = allSongs.concat(playlist.songs);
+            }
+        })
 
-    const { criteria } = req.query;
-    return res.status(200).json({ success: true, songs });
+        const uniqueHMap = new Map();
+        for( let song of allSongs) {
+            // checks title, artist, and year
+            const key = ` ${song.title?.toLowerCase()} | ${song.artist?.toLowerCase()} | ${song.year}`;
+            if (!uniqueHMap.has(key)) {
+                uniqueHMap.set(key, song);
+            }
+        }
+
+        const uniqueSongs = Array.from(uniqueHMap.values());
+
+        return res.status(200).json({ success: true, songs: uniqueSongs });
+    } catch (error) {
+        return res.status(500).json({ success: false, error, message: 'couldnt get unique songs' });
+    }
 }
 
 
