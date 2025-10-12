@@ -27,7 +27,7 @@ export const readPlaylistById = (id) => api.get(`/playlist/${id}`)
 export const readPlaylistPairs = () => api.get('playlistpairs')
 
 // mine
-export const renamePlaylist = (id, newName) => api.put(`/playlist/${id}/rename`, { action: "renamePlaylist", newName: newName });
+export const renamePlaylist = (id, newPlaylistName) => api.put(`/playlist/${id}/rename`, { action: "renamePlaylist", newPlaylistName });
 export const addSong = (id, song) => api.put(`/playlist/${id}/addSong`, { action: "addSong", song });
 export const moveSong = (id, index, newIndex) => api.put(`/playlist/${id}/moveSong`, { action: "moveSong", index, newIndex });
 export const editSong = (id, index, song) => api.put(`/playlist/${id}/editSong`, { action: "editSong", index, song });
