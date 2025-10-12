@@ -15,6 +15,9 @@ router.get('/playlists', PlaylistController.readAllPlaylists)
 router.get('/playlistpairs', PlaylistController.readPlaylistPairs)
 
 router.put('/playlist/:id', PlaylistController.updatePlaylist)
-router.delete('/playlist/:id', PlaylistController.deletePlaylist)
+router.delete('/playlist/delete/:id', PlaylistController.deletePlaylist)
+
+router.get('/playlists/getPlaylistsByPrefix', PlaylistController.getPlaylistsByPrefix);
+router.get('/songs/search', PlaylistController.getUniqueSongs);
 
 module.exports = router

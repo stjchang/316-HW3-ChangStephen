@@ -189,6 +189,32 @@ deletePlaylist = async (req, res) => {
     }
 };
 
+getPlaylistsByPrefix = async (req, res) => {
+    try {
+        const { prefix } = req.query;
+        if (!prefix) {
+            return res.status(400).json({ success: false, error: 'no prefix' });
+        }
+        const playlists = await Playlist.find({ name: { $regex: prefix, $options: 'i' } });
+
+        if (playlists.length === 0) {
+            return res.status(200).json({ success: true, message: "No playlists found with that prefix" });
+            }
+
+        return res.status(200).json({ success: true, playlists });
+        
+    } catch (error) {
+        return res.status(500).json({ success: false, error, message: 'couldnt get playlists' });
+    }
+}
+
+getUniqueSongs= async (req, res) => {
+
+
+    const { criteria } = req.query;
+    return res.status(200).json({ success: true, songs });
+}
+
 
 
 module.exports = {
@@ -198,4 +224,6 @@ module.exports = {
     readPlaylistById,
     updatePlaylist,
     deletePlaylist,
+    getPlaylistsByPrefix,
+    getUniqueSongs,
 }
