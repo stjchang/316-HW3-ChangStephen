@@ -14,7 +14,12 @@ router.get('/playlist/:id', PlaylistController.readPlaylistById)
 router.get('/playlists', PlaylistController.readAllPlaylists)
 router.get('/playlistpairs', PlaylistController.readPlaylistPairs)
 
-router.put('/playlist/:id', PlaylistController.updatePlaylist)
+router.put('/playlist/:id/rename', PlaylistController.updatePlaylist)
+router.put('/playlist/:id/addSong', PlaylistController.updatePlaylist)
+router.put('/playlist/:id/deleteSong', PlaylistController.updatePlaylist)
+router.put('/playlist/:id/moveSong', PlaylistController.updatePlaylist)
+router.put('/playlist/:id/editSong', PlaylistController.updatePlaylist)
+
 router.delete('/playlist/delete/:id', PlaylistController.deletePlaylist)
 
 router.get('/playlists/getPlaylistsByPrefix', PlaylistController.getPlaylistsByPrefix);

@@ -88,6 +88,8 @@ readPlaylistPairs = async (req, res) => {
 }
 
 updatePlaylist = async (req, res) => {
+    console.log("BODY:", req.body);
+    console.log("PARAMS:", req.params);
     try {
         const {id} = req.params;
         const {action, newPlaylistName, song, index, newIndex, } = req.body;
@@ -168,8 +170,10 @@ updatePlaylist = async (req, res) => {
 };
 
 deletePlaylist = async (req, res) => {
+    console.log("DELETE playlist called with params:", req.params);
     try {
-        const playlist = await Playlist.findOneAndDelete({ _id: req.params.id });
+        const { id } = req.params;
+        const playlist = await Playlist.findOneAndDelete({_id: id });
 
         if (!playlist) {
             return res.status(404).json({ success: false, error: 'playlist not found' });

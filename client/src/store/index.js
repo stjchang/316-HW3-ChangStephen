@@ -196,6 +196,21 @@ export const useGlobalStore = () => {
                     listMarkedForDeletion: null
                 });
             }
+            case GlobalStoreActionType.DELETE_MARKED_LIST: {
+                return setStore({
+                    currentModal : CurrentModal.NONE,
+                    idNamePairs: store.idNamePairs.filter(
+                        (pair) => pair._id !== store.listIdMarkedForDeletion
+                    ),
+                    currentList: null,
+                    currentSongIndex: -1,
+                    currentSong: null,
+                    newListCounter: store.newListCounter,
+                    listNameActive: false,
+                    listIdMarkedForDeletion: null,
+                    listMarkedForDeletion: null
+                });
+            }
             default:
                 return store;
         }
@@ -204,9 +219,26 @@ export const useGlobalStore = () => {
     // DRIVE THE STATE OF THE APPLICATION. WE'LL CALL THESE IN 
     // RESPONSE TO EVENTS INSIDE OUR COMPONENTS.
 
-    // THIS FUNCTION PROCESSES CHANGING A LIST NAME
+    // THIS FUNCTION PROCESSES CHANGING A LIST NAME -> CHANGED
     store.changeListName = function (id, newName) {
- 
+        async function asyncChangeListName(id, newName) {
+            const response = await requestSender.renamePlaylist(id, newName);
+            if (response.data.success) {
+                const pairsResponse = await requestSender.readPlaylistPairs();
+                if (pairsResponse.data.success) {
+                    storeReducer({
+                        type: GlobalStoreActionType.CHANGE_LIST_NAME,
+                        payload: {
+                            idNamePairs: pairsResponse.data.idNamePairs,
+                            playlist: store.currentList
+                        }
+                    });
+                }
+            } else {
+                console.error("API FAILED TO RENAME THE LIST");
+            }
+        }
+        asyncChangeListName(id, newName);
     }
 
     // THIS FUNCTION PROCESSES CLOSING THE CURRENTLY LOADED LIST
@@ -218,6 +250,7 @@ export const useGlobalStore = () => {
         tps.clearAllTransactions();
     }
 
+    
     // THIS FUNCTION CREATES A NEW LIST
     store.createNewList = function () {
         async function asyncCreateNewList() {
@@ -278,8 +311,31 @@ export const useGlobalStore = () => {
         }
         getListToDelete(id);
     }
+
+    //changed
     store.deleteMarkedList = function() {
-        store.hideModals();
+        async function asyncDeleteMarkedList() {
+            const id = store.listIdMarkedForDeletion;
+            if (!id) {
+                console.error("No playlist ID set for deletion");
+                return;
+            }
+            try {
+                const response = await requestSender.deletePlaylist(id);
+                if (response.data.success) {
+                    storeReducer({
+                        type: GlobalStoreActionType.DELETE_MARKED_LIST,
+                        payload: {}
+                    });
+                } else {
+                    console.error("API FAILED TO DELETE THE LIST", response.data);
+                }
+            } catch (err) {
+                console.error("Error during deletePlaylist request:", err);
+            }
+    
+        }
+        asyncDeleteMarkedList();
     }
     // THIS FUNCTION SHOWS THE MODAL FOR PROMPTING THE USER
     // TO SEE IF THEY REALLY WANT TO DELETE THE LIST
@@ -328,33 +384,88 @@ export const useGlobalStore = () => {
     // THIS FUNCTION CREATES A NEW SONG IN THE CURRENT LIST
     // USING THE PROVIDED DATA AND PUTS THIS SONG AT INDEX
     store.createSong = function(index, song) {
-
+        async function asyncCreateSong() {
+            const playlist = store.currentList;
+            const response = await requestSender.addSong(playlist._id, song);
+            if (response.data.success) {
+                playlist.songs.splice(index, 0, song);
+                storeReducer({
+                    type: GlobalStoreActionType.SET_CURRENT_LIST,
+                    payload: playlist
+                });
+            } else {
+                console.error("API FAILED TO CREATE A NEW SONG");
+            }
+        }
+        asyncCreateSong();
     }
     // THIS FUNCTION MOVES A SONG IN THE CURRENT LIST FROM
     // start TO end AND ADJUSTS ALL OTHER ITEMS ACCORDINGLY
     store.moveSong = function(start, end) {
-
+        async function asyncMoveSong() {
+            const playlist = store.currentList;
+            const response = await requestSender.moveSong(playlist._id, start, end);
+            if (response.data.success) {
+                let song = playlist.songs.splice(start, 1)[0];
+                playlist.songs.splice(end, 0, song);
+                storeReducer({
+                    type: GlobalStoreActionType.SET_CURRENT_LIST,
+                    payload: playlist
+                });
+            } else {
+                console.error("API FAILED TO MOVE A SONG");
+            }
+        }
+        asyncMoveSong();
     }
     // THIS FUNCTION REMOVES THE SONG AT THE index LOCATION
     // FROM THE CURRENT LIST
     store.removeSong = function(index) {
-
+        async function asyncRemoveSong() {
+            const playlist = store.currentList;
+            const response = await requestSender.deleteSong(playlist._id, index);
+            if (response.data.success) {
+                playlist.songs.splice(index, 1);
+                storeReducer({
+                    type: GlobalStoreActionType.SET_CURRENT_LIST,
+                    payload: playlist
+                });
+            } else {
+                console.error("API FAILED TO REMOVE A SONG");
+            }
+        }
+        asyncRemoveSong();
     }
     // THIS FUNCTION UPDATES THE TEXT IN THE ITEM AT index TO text
     store.updateSong = function(index, songData) {
-
+        async function asyncUpdateSong() {
+            const playlist = store.currentList;
+            const response = await requestSender.editSong(playlist._id, index, songData);
+            if (response.data.success) {
+                playlist.songs[index] = songData;
+                storeReducer({
+                    type: GlobalStoreActionType.SET_CURRENT_LIST,
+                    payload: playlist
+                });
+            } else {
+                console.error("API FAILED TO UPDATE A SONG");
+            }
+        }
+        asyncUpdateSong();
     }
     // THIS ADDS A BRAND NEW SONG
     store.addNewSong = () => {
-
+        const newSong = {title: "Untitled",artist: "Unknown", year: "2000", youTubeId: "dQw4w9WgXcQ"};
+        store.addCreateSongTransaction(store.getPlaylistSize(), newSong.title, newSong.artist, newSong.year, newSong.youTubeId);
     }
     
     // THIS FUNCDTION ADDS A CreateSong_Transaction TO THE TRANSACTION STACK
-    store.addCreateSongTransaction = (index, title, artist, youTubeId) => {
+    store.addCreateSongTransaction = (index, title, artist, year, youTubeId) => {
         // ADD A SONG ITEM AND ITS NUMBER
         let song = {
             title: title,
             artist: artist,
+            year: year,
             youTubeId: youTubeId
         };
         let transaction = new CreateSong_Transaction(store, index, song);
